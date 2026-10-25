@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Jednoduché rozhraní pro vyhledávání na webu, obrázků a pokročilé vyhledávání.">
+    <title>Google</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="top-nav" aria-label="Hlavní navigace">
+        <div class="search-tabs" aria-label="Typ vyhledávání">
+          <a class="tab-link is-active" href="./" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 4 4"/></svg>
+            Vyhledávání
+          </a>
+          <a class="tab-link" href="?mode=advanced">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/><circle cx="8" cy="6" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="11" cy="18" r="1.5"/></svg>
+            Pokročilé vyhledávání
+          </a>
+          <a class="tab-link" href="?mode=images">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m5 17 4.5-4.5 3 3 2.5-2.5 4 4"/></svg>
+            Obrazkové vyhledávání
+          </a>
+        </div>
+        <a class="apps-button" href="https://about.google/products/" aria-label="Produkty Google" title="Produkty Google">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></svg>
+        </a>
+        <a class="sign-in" href="https://accounts.google.com/">Přihlásit se</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="home-view" data-view="search" aria-labelledby="google-wordmark">
+        <a class="wordmark" id="google-wordmark" href="./" aria-label="Google – domovská stránka">
+          <span class="letter-blue">G</span><span class="letter-red">o</span><span class="letter-yellow">o</span><span class="letter-blue">g</span><span class="letter-green">l</span><span class="letter-red">e</span>
+        </a>
+        <form id="web-query-form" class="search-form" action="https://www.google.com/search" method="get" role="search">
+          <label class="visually-hidden" for="web-query">Vyhledat na webu</label>
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 4 4"/></svg>
+          <input id="web-query" name="q" type="search" autocomplete="off" spellcheck="false" required>
+          <button class="icon-button voice-button" type="button" aria-label="Hlasové vyhledávání" title="Hlasové vyhledávání">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21m-3 0h6"/></svg>
+          </button>
+          <button class="icon-button camera-button" type="button" aria-label="Vyhledávání podle obrázku" title="Vyhledávání podle obrázku">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h3l1.5-2h7l1.5 2h3a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-16A1.5 1.5 0 0 1 2.5 18V9A1.5 1.5 0 0 1 4 7.5Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          </button>
+        </form>
+        <div class="search-actions">
+          <button class="button button-primary" type="submit" form="web-query-form">Hledat Googlem</button>
+          <button class="button" type="button" data-lucky>Cítím se šťastný</button>
+        </div>
+        <p class="language-note">Google je k dispozici v těchto jazycích: <a href="https://www.google.com/?hl=en">English</a></p>
+      </section>
+
+      <section class="images-view" data-view="images" aria-labelledby="images-heading" hidden>
+        <div class="images-top">
+          <a class="compact-wordmark" href="./" aria-label="Google – domovská stránka">
+            <span class="letter-blue">G</span><span class="letter-red">o</span><span class="letter-yellow">o</span><span class="letter-blue">g</span><span class="letter-green">l</span><span class="letter-red">e</span>
+          </a>
+          <a class="home-button" href="./">Zpět na hlavní stránku</a>
+        </div>
+        <div class="images-content">
+          <p class="eyebrow">Objevujte svět kolem sebe</p>
+          <h1 id="images-heading">Vyhledávání obrázků</h1>
+          <p class="section-intro">Najděte inspiraci, místa i odpovědi na své otázky.</p>
+          <form id="image-query-form" class="search-form image-search-form" action="https://www.google.com/search" method="get" role="search">
+            <input type="hidden" name="tbm" value="isch">
+            <label class="visually-hidden" for="image-query">Vyhledat obrázky</label>
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 4 4"/></svg>
+            <input id="image-query" name="q" type="search" autocomplete="off" spellcheck="false" required>
+            <button class="icon-button camera-button" type="button" aria-label="Vyhledávání podle obrázku" title="Vyhledávání podle obrázku">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h3l1.5-2h7l1.5 2h3a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-16A1.5 1.5 0 0 1 2.5 18V9A1.5 1.5 0 0 1 4 7.5Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+            </button>
+          </form>
+          <div class="search-actions">
+            <button class="button button-primary" type="submit" form="image-query-form">Hledat obrázky</button>
+          </div>
+          <div class="image-preview" aria-hidden="true">
+            <div class="preview-card preview-one"><span class="sun"></span><span class="hill hill-back"></span><span class="hill hill-front"></span></div>
+            <div class="preview-card preview-two"><span class="flower">✳</span><span class="flower-stem"></span></div>
+            <div class="preview-card preview-three"><span class="moon"></span><span class="star star-one"></span><span class="star star-two"></span><span class="mountain"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="advanced-view" data-view="advanced" aria-labelledby="advanced-heading" hidden>
+        <div class="advanced-top">
+          <a class="compact-wordmark" href="./" aria-label="Google – domovská stránka">
+            <span class="letter-blue">G</span><span class="letter-red">o</span><span class="letter-yellow">o</span><span class="letter-blue">g</span><span class="letter-green">l</span><span class="letter-red">e</span>
+          </a>
+          <a class="home-button" href="./">Zpět na hlavní stránku</a>
+        </div>
+        <div class="advanced-heading-wrap">
+          <h1 id="advanced-heading">Pokročilé vyhledávání</h1>
+          <p>Najděte stránky, které odpovídají všem zadaným kritériím.</p>
+        </div>
+        <form class="advanced-form" action="https://www.google.com/search" method="get">
+          <div class="advanced-labels">
+            <span>Najít stránky s…</span>
+            <span>Vyplňte tato pole</span>
+          </div>
+          <label class="advanced-row">
+            <span>všemi těmito slovy</span>
+            <input type="text" name="as_q" autocomplete="off">
+            <small>Zadejte důležitá slova: <b>světová výstava</b></small>
+          </label>
+          <label class="advanced-row">
+            <span>přesně tímto slovem nebo frází</span>
+            <input type="text" name="as_epq" autocomplete="off">
+            <small>Uzavřete přesná slova do uvozovek: <b>"nejvyšší budova"</b></small>
+          </label>
+          <label class="advanced-row">
+            <span>kterýmkoli z těchto slov</span>
+            <input type="text" name="as_oq" autocomplete="off">
+            <small>Mezi slova vložte <b>OR</b>: <b>maraton OR závod</b></small>
+          </label>
+          <label class="advanced-row">
+            <span>bez těchto slov</span>
+            <input type="text" name="as_eq" autocomplete="off">
+            <small>Před nežádoucí slova vložte znaménko minus: <b>-běh</b></small>
+          </label>
+          <div class="advanced-divider"></div>
+          <label class="advanced-row optional-row">
+            <span>na webu nebo v doméně</span>
+            <input type="text" name="as_sitesearch" placeholder="např. example.com" autocomplete="url">
+            <small>Omezte výsledky na konkrétní web.</small>
+          </label>
+          <label class="advanced-row optional-row">
+            <span>typ souboru</span>
+            <select name="as_filetype">
+              <option value="">Libovolný formát</option>
+              <option value="pdf">PDF (.pdf)</option>
+              <option value="doc">Microsoft Word (.doc)</option>
+              <option value="xls">Microsoft Excel (.xls)</option>
+              <option value="ppt">Microsoft PowerPoint (.ppt)</option>
+            </select>
+            <small>Najděte stránky v konkrétním formátu.</small>
+          </label>
+          <div class="advanced-submit">
+            <span></span>
+            <button class="button button-blue" type="submit">Pokročilé vyhledávání</button>
+          </div>
+        </form>
+        <aside class="advanced-tips">
+          <h2>Tipy pro vyhledávání</h2>
+          <p>Kombinujte různá pole a zúžte výsledky podle webové domény nebo typu souboru.</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-country">Česká republika</div>
+      <div class="footer-links">
+        <div class="footer-group">
+          <a href="https://about.google/">O společnosti</a>
+          <a href="https://ads.google.com/">Reklama</a>
+          <a href="https://www.google.com/intl/cs/about/products/">Jak funguje Vyhledávání</a>
+        </div>
+        <div class="footer-group">
+          <a href="https://policies.google.com/privacy?hl=cs">Ochrana soukromí</a>
+          <a href="https://policies.google.com/terms?hl=cs">Podmínky</a>
+          <a href="https://support.google.com/websearch/?hl=cs">Nápověda</a>
+          <a href="citace.html">Citace a informace o AI</a>
+          <a href="formularove-prvky.html">Ukázka formulářových prvků</a>
+        </div>
+      </div>
+      <div class="validation-links" aria-label="Validace stránky">
+        <a href="https://validator.w3.org/nu/" data-validator="html" target="_blank" rel="noopener noreferrer">Validovat HTML</a>
+        <a href="https://jigsaw.w3.org/css-validator/" data-validator="css" target="_blank" rel="noopener noreferrer">Validovat CSS</a>
+      </div>
+    </footer>
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

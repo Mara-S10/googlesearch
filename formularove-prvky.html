@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Ukázka běžných HTML formulářových prvků a ovládacích prvků.">
+    <title>Ukázka formulářových prvků</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="project-header">
+      <a class="compact-wordmark" href="./" aria-label="Zpět na hlavní stránku Google">
+        <span class="letter-blue">G</span><span class="letter-red">o</span><span class="letter-yellow">o</span><span class="letter-blue">g</span><span class="letter-green">l</span><span class="letter-red">e</span>
+      </a>
+      <a class="home-button" href="./">Zpět na hlavní stránku</a>
+    </header>
+
+    <main class="project-main form-demo-main">
+      <p class="eyebrow">HTML ukázka</p>
+      <h1>Formulářové prvky</h1>
+      <p class="project-intro">Přehled různých polí, voleb a tlačítek dostupných v HTML. Formulář slouží pouze jako ukázka a jeho odeslání nic neukládá.</p>
+
+      <form class="demo-form" action="#" method="get">
+        <input type="hidden" name="demo-token" value="ukazka">
+        <section class="demo-section" aria-labelledby="text-inputs-heading">
+          <h2 id="text-inputs-heading">Textová a kontaktní pole</h2>
+          <div class="demo-grid">
+            <label class="demo-field">Text
+              <input type="text" name="text" placeholder="Zadejte text">
+            </label>
+            <label class="demo-field">Hledání
+              <input type="search" name="search" placeholder="Hledat…">
+            </label>
+            <label class="demo-field">E-mail
+              <input type="email" name="email" placeholder="jmeno@example.cz">
+            </label>
+            <label class="demo-field">Webová adresa
+              <input type="url" name="url" placeholder="https://example.cz">
+            </label>
+            <label class="demo-field">Telefon
+              <input type="tel" name="telephone" placeholder="+420 123 456 789">
+            </label>
+            <label class="demo-field">Heslo
+              <input type="password" name="password" placeholder="Zadejte heslo">
+            </label>
+            <label class="demo-field">Číslo
+              <input type="number" name="number" min="0" max="100" step="1" placeholder="0–100">
+            </label>
+            <label class="demo-field">Text s automatickým doplňováním
+              <input type="text" name="city" list="cities" placeholder="Začněte psát město">
+              <datalist id="cities">
+                <option value="Praha"></option>
+                <option value="Brno"></option>
+                <option value="Ostrava"></option>
+                <option value="Plzeň"></option>
+              </datalist>
+            </label>
+            <label class="demo-field">Text pouze pro čtení
+              <input type="text" value="Toto pole nelze upravit" readonly>
+            </label>
+            <label class="demo-field">Zakázané pole
+              <input type="text" value="Toto pole je neaktivní" disabled>
+            </label>
+            <label class="demo-field demo-field-wide">Víceřádkový text
+              <textarea name="message" rows="4" placeholder="Napište krátkou zprávu…"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="demo-section" aria-labelledby="select-heading">
+          <h2 id="select-heading">Výběr z možností</h2>
+          <div class="demo-grid">
+            <label class="demo-field">Jednoduchý výběr
+              <select name="fruit">
+                <option value="">Vyberte ovoce</option>
+                <option>Jablko</option>
+                <option>Hruška</option>
+                <option>Meruňka</option>
+                <option>Třešeň</option>
+              </select>
+            </label>
+            <label class="demo-field">Výběr z optgroup
+              <select name="drink">
+                <option value="">Vyberte nápoj</option>
+                <optgroup label="Teplé nápoje">
+                  <option>Káva</option>
+                  <option>Čaj</option>
+                </optgroup>
+                <optgroup label="Studené nápoje">
+                  <option>Voda</option>
+                  <option>Mošt</option>
+                </optgroup>
+              </select>
+            </label>
+            <label class="demo-field demo-field-wide">Vícenásobný výběr (Ctrl nebo Cmd + kliknutí)
+              <select name="colors" multiple size="4">
+                <option>Modrá</option>
+                <option>Zelená</option>
+                <option>Červená</option>
+                <option>Žlutá</option>
+                <option>Fialová</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section class="demo-section" aria-labelledby="checks-heading">
+          <h2 id="checks-heading">Zaškrtávací políčka a přepínače</h2>
+          <div class="demo-choice-columns">
+            <fieldset class="demo-fieldset">
+              <legend>Oblíbené barvy — lze zvolit více</legend>
+              <label class="demo-choice"><input type="checkbox" name="color-blue" value="blue"> Modrá</label>
+              <label class="demo-choice"><input type="checkbox" name="color-green" value="green"> Zelená</label>
+              <label class="demo-choice"><input type="checkbox" name="color-red" value="red" checked> Červená (předvybráno)</label>
+              <label class="demo-choice"><input type="checkbox" name="color-yellow" value="yellow"> Žlutá</label>
+            </fieldset>
+            <fieldset class="demo-fieldset">
+              <legend>Velikost — lze zvolit jednu</legend>
+              <label class="demo-choice"><input type="radio" name="size" value="small"> Malá</label>
+              <label class="demo-choice"><input type="radio" name="size" value="medium" checked> Střední (předvybráno)</label>
+              <label class="demo-choice"><input type="radio" name="size" value="large"> Velká</label>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="demo-section" aria-labelledby="date-heading">
+          <h2 id="date-heading">Datum a čas</h2>
+          <div class="demo-grid">
+            <label class="demo-field">Datum
+              <input type="date" name="date">
+            </label>
+            <label class="demo-field">Čas
+              <input type="time" name="time">
+            </label>
+            <label class="demo-field">Datum a čas
+              <input type="datetime-local" name="datetime">
+            </label>
+            <label class="demo-field">Měsíc
+              <input type="month" name="month">
+            </label>
+            <label class="demo-field">Týden
+              <input type="week" name="week">
+            </label>
+          </div>
+        </section>
+
+        <section class="demo-section" aria-labelledby="other-heading">
+          <h2 id="other-heading">Další vstupy</h2>
+          <div class="demo-grid">
+            <label class="demo-field">Barva
+              <input type="color" name="color" value="#4285f4">
+            </label>
+            <label class="demo-field">Soubor
+              <input type="file" name="file">
+            </label>
+            <label class="demo-field">Rozsah: <output name="range-value">50</output>
+              <input type="range" name="range" min="0" max="100" value="50">
+            </label>
+            <label class="demo-field">Číslo s krokem 0,5
+              <input type="number" name="decimal" min="0" max="10" step="0.5" value="5">
+            </label>
+            <div class="demo-field demo-field-wide">
+              <span>Ukazatele</span>
+              <div class="demo-indicators">
+                <label>Průběh <progress value="68" max="100">68 %</progress></label>
+                <label>Úroveň <meter min="0" max="100" low="30" high="75" optimum="90" value="82">82 %</meter></label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="demo-section" aria-labelledby="buttons-heading">
+          <h2 id="buttons-heading">Tlačítka</h2>
+          <div class="demo-button-row">
+            <button class="button button-blue" type="button">Běžné tlačítko</button>
+            <button class="button button-primary" type="submit">Odeslat ukázku</button>
+            <button class="button" type="reset">Obnovit formulář</button>
+            <input class="demo-input-button" type="button" value="Input button">
+            <input class="demo-input-button" type="submit" value="Input submit">
+            <input class="demo-input-button" type="reset" value="Input reset">
+            <button class="button" type="button" disabled>Zakázané tlačítko</button>
+          </div>
+        </section>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-country">Ukázka formulářových prvků</div>
+      <div class="footer-links">
+        <div class="footer-group">
+          <a href="./">Zpět na hlavní stránku</a>
+          <a href="citace.html">Citace a informace o AI</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
